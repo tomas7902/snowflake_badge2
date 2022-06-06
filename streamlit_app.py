@@ -44,9 +44,9 @@ def insert_row_snowflake(new_fruit):
     my_cur.execute("insert into fruit_load_list values ('" + new_fruit + "')")
     return "Thanks for adding " + new_fruit
 
-insert_row_snowflake(jackfruit)
-insert_row_snowflake(guava)
-insert_row_snowflake(kiwi)
+insert_row_snowflake("jackfruit")
+insert_row_snowflake("guava")
+insert_row_snowflake("kiwi")
 
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
