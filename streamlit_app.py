@@ -40,9 +40,11 @@ except URLerror as e:
 
 #Allow user to add fruit to the list
 def insert_row_snowflake(new_fruit):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
   with my_cnx.cursor() as my_cur:
     my_cur.execute("insert into fruit_load_list values ('" + new_fruit + "')")
     return "Thanks for adding " + new_fruit
+  my_cnx.close()
 
 insert_row_snowflake("jackfruit")
 insert_row_snowflake("guava")
